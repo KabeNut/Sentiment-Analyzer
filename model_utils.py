@@ -2,10 +2,9 @@ import logging
 from os import environ
 environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # FATAL
 logging.getLogger('tensorflow').setLevel(logging.FATAL)
-
 from typing import Iterable
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.python.keras.models import load_model
+from keras_preprocessing.sequence import pad_sequences
 
 from numpy import argmax
 from pickle import load as pkl_load
@@ -89,7 +88,7 @@ class BiLSTM(FullyConnected_NN):
 if __name__ == "__main__":
     # Sample Usage
     sentence = 'This is a decent and average product i guess.'
-    obj = GRU()
+    obj = BiLSTM()
     rating = obj.get_rating(sentence)
     print('Rating given by model is:',rating)
 
